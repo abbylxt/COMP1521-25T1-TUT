@@ -17,23 +17,29 @@
 uint8_t printerControl = 0; // 0b 0000 0000
 
 void checkInk(void) {
-    int result = printerControl & NO_INK;
-
-    if (result == 1) {
-        printf("no ink\n");
+    if ((printerControl & NO_INK) == 1) {
+        printf("No more ink T-T\n");
     } else {
-        printf("has ink\n");
+        printf("Has ink :))\n");
     }
 };               // Question A
 void replaceInk(void) {
-    // printerControl &= ~NO_INK;
+    // ???? ????
+    // &
+    // 1111 1110 = ~NO_INK
+    // ???? ???0
     printerControl = printerControl & ~NO_INK;
 };             // Question B
 void useColourAndSelectScan(void) {
-    printerControl = printerControl | COLOUR
-    printerControl = printerControl | SELECT_SCAN
+    // ???? ???? 
+    // |
+    // 0000 1000 = select_scan
+    // ???? 1???
+    // |
+    // 0000 0010 = colour
+    // ???? 1?1?
+    printerControl = printerControl | SELECT_SCAN;
+    printerControl = printerControl | COLOUR;
 }; // Question C
 void toggleMode(void);             // Question D
 void start(void);                  // Question E
-
-
