@@ -16,8 +16,24 @@
 // The printer
 uint8_t printerControl = 0; // 0b 0000 0000
 
-void checkInk(void);               // Question A
-void replaceInk(void);             // Question B
-void useColourAndSelectScan(void); // Question C
+void checkInk(void) {
+    int result = printerControl & NO_INK;
+
+    if (result == 1) {
+        printf("no ink\n");
+    } else {
+        printf("has ink\n");
+    }
+};               // Question A
+void replaceInk(void) {
+    // printerControl &= ~NO_INK;
+    printerControl = printerControl & ~NO_INK;
+};             // Question B
+void useColourAndSelectScan(void) {
+    printerControl = printerControl | COLOUR
+    printerControl = printerControl | SELECT_SCAN
+}; // Question C
 void toggleMode(void);             // Question D
 void start(void);                  // Question E
+
+

@@ -4,13 +4,13 @@
 
 int main(void) {
     // // 1234
-    // int dec = 1234; // = 1234
+    // int dec = 1234; // 4 * 10^0 + 3 * 10^1 + 2 * 10^2 + 1 * 10^3 = 1234
     // // hex counting: 0 1 2 ... 9 A B C D E F
-    // int hex = 0x1234; // = 4096 + 512 + 48 + 4 = 4,660
+    // int hex = 0x1234; // 1 * 16^3 + 2 * 16^2 + 3 * 16^1 + 4 * 16^0  = 4096 + 512 + 48 + 4 = 4,660
     // // oct counting: 0 1 2 ... 7
-    // int oct = 01234; // = 668
+    // int oct = 01234; // 1 * 8^3 + 2 * 8^2 + 3 * 8^1 + 4 * 8^0 = 668
     // // binary = 0 1
-    // int binary = 0b1010; // 10 (not portable) (not recommend to use in your code)
+    // int binary = 0b1010; 1 * 2^3 + 0 * 2^2 + 1 * 2^1 + 0 * 2^0// 10 (not portable) (not recommend to use in your code)
 
     // 127
     int dec = 1234; 
@@ -32,28 +32,28 @@ int main(void) {
                      // 0007  = 7 * (8 ^ 0) = 
                      //                         =
                      //                        668
-    // int binary = 0b1010; // 2 (not portable) (do not to use in your code)
+    int binary = 0b1010; // 2 (not portable) (do not to use in your code)
                          // 0b1000 = 1 * 2^3 = 8
                          // 0b0000 = 0 * 2^2 = 0
                          // 0b0010 = 1 * 2^1 = 2
                          // 0b0000 = 0 * 2^0 = 0
                          // total  =  0b1010 = 10
     //  hex to binary    0x7F  = 0111 1111
-                         // 0x7 = 7 = 0111
-                         // 0xF = 15 = 1111
+                         // 0x7 = 7 = 0111 = 1 * 2^2 + 1 * 2^1 + 1 * 2^0 = 4+2+1
+                         // 0xF = 15 = 1111 = 1 * 2^3 + 1 * 2^2 + 1 * 2^1 + 1 * 2^0 = 8+4+2+1
 
 
-    printf("%d\n", dec);
-    printf("0x%03X = %d\n", hex, hex);
-    printf("0%o = %d\n", oct, oct);
-    printf("%d\n", binary);
-    printf("0x%03X, 0%o\n", hex, oct);
-    printf("0x%03x, 0%o\n", hex, oct);
+    // printf("%d\n", dec);
+    // printf("0x%03X = %d\n", hex, hex);
+    // printf("0%o = %d\n", oct, oct);
+    // printf("%d\n", binary);
+    // printf("0x%03X, 0%o\n", hex, oct);
+    // printf("0x%03x, 0%o\n", hex, oct);
 
     // // mini program to print input in octal, hex and dec
-    // int input;
-    // scanf("%d", &input);
-    // printf("input decimcal form = %d\n input hex form  = 0x%03X\n input octal form = 0%o\n", input, input, input);
+    int input;
+    scanf("%d", &input);
+    printf("input decimcal form = %d\n input hex form  = 0x%03X\n input octal form = 0%o\n", input, input, input);
 
     return EXIT_SUCCESS;
 }

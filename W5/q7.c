@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 typedef unsigned int Word;
-// default int = 32 bits
+// default int = 32 bits = 4 bytes 
 
 Word reverseBits(Word w) {
     Word result = 0;
