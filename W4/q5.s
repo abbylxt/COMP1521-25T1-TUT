@@ -1,30 +1,31 @@
 main:
 main_prologue:
-	begin
-	push	$ra
+	begin				# open stack frame
+	push	$ra			# push $ra onto stack
 
 main_body:
 	# sum4(11, 13, 17, 19);
-	li	$a0, 11
+	li	$a0, 11			# loading arguments into $a registers to prep for function call
 	li	$a1, 13
 	li	$a2, 17
 	li	$a3, 19
 
-	jal	sum4
+	jal	sum4			# jump to function and link current location
 
-	move	$a0, $v0
+	move	$a0, $v0		# printf("%d", sum4(11, 13, 17, 19));
 	li	$v0, 1
 	syscall
 
-	li	$a0, '\n'
+	li	$a0, '\n'		# printf("\n");
 	li	$v0, 11
 	syscall
 
 main_epilogue:
 
-	pop	$ra
-	li	$v0, 0
+	pop	$ra			# pop top value from stack and place it into $ra
+	li	$v0, 0			# return 0;
 	jr	$ra
+
 
 sum4:
 	# li	$a0, a
@@ -41,6 +42,7 @@ sum4_prologue:
 sum4_body:
 	move	$s2, $a2
 	move	$s3, $a3
+	
 	# already $a0 = a, $a1 = b
 	jal	sum2
 	move	$s0, $v0
@@ -70,7 +72,7 @@ sum2_prologue:
 
 sum2_body:
 	add	$v0, $a0, $a1
-	
+
 sum2_epilogue:
 	jr	$ra
 
